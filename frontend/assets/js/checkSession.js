@@ -13,11 +13,11 @@ function checkSession() {
   const expiration = decodedPayload.exp * 5000; // JWT `exp` is in seconds, convert to milliseconds
 
   // Check if the token is expired
-  if (Date.now() >= expiration) {
-    alert("Session expired. Redirecting to login...");
-    localStorage.removeItem("token"); // Clear token
-    redirectToLogin();
-  }
+  // if (Date.now() >= expiration) {
+  //   alert("Session expired. Redirecting to login...");
+  //   localStorage.removeItem("token"); // Clear token
+  //   redirectToLogin();
+  // }
 }
 
 function redirectToLogin() {
