@@ -12,11 +12,11 @@ function verifyAccess() {
   const decodedPayload = JSON.parse(atob(payloadBase64));
   const expiration = decodedPayload.exp * 1000;
 
-  if (Date.now() >= expiration) {
-    alert("Session expired. Redirecting to login...");
-    localStorage.removeItem("token");
-    redirectToLogin();
-  }
+  // if (Date.now() >= expiration) {
+  //   alert("Session expired. Redirecting to login...");
+  //   localStorage.removeItem("token");
+  //   redirectToLogin();
+  // }
 }
 
 verifyAccess();
