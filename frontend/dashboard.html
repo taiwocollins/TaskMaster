@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - TaskMaster</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <script defer src="assets/js/checkSession.js"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="#" id="logout-btn">Logout</a>
+    </nav>
+    <div class="container mt-5">
+      <h2>Dashboard</h2>
+      <div>
+        <h4>Create New Task</h4>
+        <form class="forms" id="task-form">
+          <div class="form-group">
+            <label for="task-title">Task Title</label>
+            <input type="text" id="task-title" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="task-description">Description</label>
+            <textarea
+              id="task-description"
+              class="form-control"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="task-deadline">Deadline</label>
+            <input
+              type="date"
+              id="task-deadline"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="task-priority">Priority</label>
+            <select id="task-priority" class="form-control" required>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Task</button>
+        </form>
+      </div>
+      <div
+        class="task-controls d-flex justify-content-between align-items-center my-4"
+      >
+        <!-- Filter Section -->
+        <div class="filter-group">
+          <label for="filter-priority" class="font-weight-bold mr-2"
+            >Filter by Priority:</label
+          >
+          <select
+            id="filter-priority"
+            class="form-control d-inline-block w-auto"
+          >
+            <option value="">All</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+        <!-- Sort Section -->
+        <div class="sort-group">
+          <label for="sort-tasks" class="font-weight-bold mr-2">Sort by:</label>
+          <select id="sort-tasks" class="form-control d-inline-block w-auto">
+            <option value="deadline-asc">Deadline (Ascending)</option>
+            <option value="deadline-desc">Deadline (Descending)</option>
+            <option value="priority-asc">Priority (Low to High)</option>
+            <option value="priority-desc">Priority (High to Low)</option>
+          </select>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-group">
+          <input
+            type="text"
+            id="search-tasks"
+            class="form-control"
+            placeholder="Search tasks by title or description"
+          />
+        </div>
+      </div>
+
+      <h4 class="mt-4">Task List</h4>
+      <div id="task-list"></div>
+    </div>
+
+    <div id="edit-modal" style="display: none">
+      <form id="edit-task-form">
+        <div class="form-group">
+          <label for="edit-title">Task Title</label>
+          <input type="text" id="edit-title" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="edit-description">Description</label>
+          <textarea
+            id="edit-description"
+            class="form-control"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="edit-deadline">Deadline</label>
+          <input type="date" id="edit-deadline" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="edit-priority">Priority</label>
+          <select id="edit-priority" class="form-control" required>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <button type="submit">Save Changes</button>
+        <button type="button" id="close-edit-modal">Cancel</button>
+      </form>
+    </div>
+
+    <script defer src="assets/js/app.js"></script>
+    <script defer src="assets/js/verifyAccess.js"></script>
+  </body>
+</html>
